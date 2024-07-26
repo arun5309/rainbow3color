@@ -12,7 +12,7 @@
 
 <!-- This title can be uncommmented as needed -->
 <!-- <h1>Rainbow Road PIN Entry</h1> -->
-<buton id="start" on:click>Start Game!</buton>
+<buton id="start" on:click>Enter PIN</buton>
 
 <style>
 	#start {

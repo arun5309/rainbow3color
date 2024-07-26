@@ -73,7 +73,7 @@
 	}
 
 	// from RainbowRoad
-	let numColors: number = 3;
+	let numColors: number = 5;
 	function handlePickRoad(event: CustomEvent) {
 		let colorIndex = event.detail.color;
 		let perm = event.detail.value;
@@ -254,8 +254,9 @@
 		{/if}
 		<RainbowRoad {numColors} on:pickRoad={handlePickRoad} />
 		<h1>
-			<strong>Look</strong> at your digit. <strong>Pick</strong> a Color. <strong>Remember</strong> the
-			Code
+			<strong>Look</strong> at your digit. <br>
+			<strong>Pick</strong> a Color. <br>
+			<strong>Remember</strong> the corresponding number
 		</h1>
 	{/if}
 

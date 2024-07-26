@@ -4,7 +4,7 @@ export const colors: Array<string> = [
 	'#ee9900',
 	'#dd60dd',
 	'#dddd00',
-	'#0000dd',
+	'#ADD8E6',
 	'#dd0000'
 ];
 export const colorsNames: Array<string> = ['Green', 'Orange', 'Pink', 'Yellow', 'Blue', 'Red'];
