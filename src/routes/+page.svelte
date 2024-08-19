@@ -233,7 +233,7 @@
 		<button on:click={progress_transition}>Start Game</button>
 
 		<!-- Below is the code for the start page of the demo version of this password entry method -->
-		<StartPage on:click={() => stageRainbowScreen()} />
+		<!--<StartPage on:click={() => stageRainbowScreen()} />-->
 	{/if}
 
 	{#if showKeypadScreen}
@@ -294,9 +294,9 @@
 		<button><a href="https://pinentry.net/">Checkout Other Games</a></button>
 
 		<!-- Below is the code for the end page of the demo version of this password entry method -->
-		<EndPage PIN={userEnteredPIN} />
+		<!--<EndPage PIN={userEnteredPIN} />
 		<br>
-		<button on:click={reset}>Play Again</button>
+		<button on:click={reset}>Play Again</button>-->
 	{/if}
 </section>
 
