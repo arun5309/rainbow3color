@@ -220,7 +220,7 @@
 			{:then get_points_value}
 				{#if get_points_value.uid !== null}
 					{(set_actual_pin(get_points_value.actual_pin), '')}
-					<p style="color: green">Points: {get_points_value.points}</p>
+					<p style="color: green">Valid User ID!</p>
 				{:else}
 					<p style="color: red">Invalid User ID!</p>
 				{/if}
@@ -271,10 +271,10 @@
 		{#if actual_pin === userEnteredPIN}
 			<p style="color: green">Congratulations on entering the correct PIN!</p>
 		{:else}
-			<p style="color: red">Incorrect PIN entered, no points earned!</p>
+			<p style="color: red">Incorrect PIN entered!</p>
 		{/if}
 		<br />
-		{#await get_points()}
+		<!--{#await get_points()}
 			<p>Fetching points...</p>
 		{:then get_points_value}
 			{#if get_points_value.uid !== null}
@@ -286,7 +286,7 @@
 			{(console.log(error), '')}
 			<p style="color: purple">Network Error: Unable to fetch points!</p>
 		{/await}
-		<br />
+		<br />-->
 		<button on:click={() => (show_pin = !show_pin)}>Toggle Visibility of Entered PIN</button>
 		<br />
 		<button on:click={reset}>Play Again</button>
