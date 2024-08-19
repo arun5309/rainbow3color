@@ -91,7 +91,7 @@
 	$: uid_valid = check_uid_valid(uid);
 	let iid: number = -1;
 	let actual_pin: string = '';
-	const USER_ID_LENGTH = 3;
+	const USER_ID_LENGTH = 6;
 
 	function reset() {
 		showStartScreen = true;
@@ -115,7 +115,7 @@
 	}
 
 	async function get_points(): Promise<GetPointsResponse> {
-		const url = `https://142.93.219.243.nip.io/points/${uid.toLowerCase()}`;
+		const url = `https://pinentry.net/points/${uid.toLowerCase()}`;
 		const request = new Request(url, { method: 'GET' });
 		const data = await fetch(request);
 		return <GetPointsResponse>(<unknown>data.json());
@@ -146,7 +146,7 @@
 
 	function progress_transition() {
 		if (!uid_valid) return;
-		const url = 'https://142.93.219.243.nip.io/create_instance';
+		const url = 'https://pinentry.net/create_instance';
 		const data = {
 			game_id: 'IMMM',
 			user_id: uid.toLowerCase()
@@ -170,27 +170,27 @@
 	function finish_transition() {
 		stageEndScreen()
 		// --- Below is code to integrate end screen into the Data Collection version of this scheme
-		// const url = 'https://142.93.219.243.nip.io/update_instance';
-		// const data = {
-		// 	iid_value: iid,
-		// 	result_pin: userEnteredPIN
-		// };
-		// const request = new Request(url, {
-		// 	method: 'POST',
-		// 	body: JSON.stringify(data),
-		// 	headers: new Headers({
-		// 		'Content-Type': 'application/json; charset=UTF-8'
-		// 	})
-		// });
-		// fetch(request).then((instance_response_value_temp) => {
-		// 	instance_response_value_temp.json().then((temp) => {
-		// 		const instance_response_value = <UpdateInstanceResponse>(<unknown>temp);
-		// 		if (iid !== instance_response_value.iid) {
-		// 			alert('Reached invalid state, please report bug!');
-		// 		}
-		// 		stageEndScreen();
-		// 	});
-		// });
+		const url = 'https://pinentry.net/update_instance';
+		const data = {
+			iid_value: iid,
+			result_pin: userEnteredPIN
+		};
+		const request = new Request(url, {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: new Headers({
+				'Content-Type': 'application/json; charset=UTF-8'
+			})
+		});
+		fetch(request).then((instance_response_value_temp) => {
+			instance_response_value_temp.json().then((temp) => {
+				const instance_response_value = <UpdateInstanceResponse>(<unknown>temp);
+				if (iid !== instance_response_value.iid) {
+					alert('Reached invalid state, please report bug!');
+				}
+				stageEndScreen();
+			});
+		});
 	}
 </script>
 
@@ -204,7 +204,7 @@
 		<img src={banner} alt="Rainbow Road" width="100%" height="30%" />
 		<br>
 		<!-- Below is code to integrate start screen into the Data Collection version of this scheme -->
-		<!-- <br />
+		<br />
 		<input
 			type="text"
 			placeholder="User ID"
@@ -230,7 +230,7 @@
 			{/await}
 		{/if}
 		<br />
-		<button on:click={progress_transition}>Start Game</button> -->
+		<button on:click={progress_transition}>Start Game</button>
 
 		<!-- Below is the code for the start page of the demo version of this password entry method -->
 		<StartPage on:click={() => stageRainbowScreen()} />
@@ -264,7 +264,7 @@
 		<img src={banner} alt="Rainbow Road" width="100%" height="30%" />
 		<br />
 		<!-- Below is code to integrate the end screen into the Data Collection version of this password entry method -->
-		<!-- {#if show_pin}
+		{#if show_pin}
 			<div>Entered PIN: {userEnteredPIN}</div>
 		{/if}
 		<br />
@@ -291,7 +291,7 @@
 		<br />
 		<button on:click={reset}>Play Again</button>
 		<br />
-		<button><a href="https://142.93.219.243.nip.io/">Checkout Other Games</a></button> -->
+		<button><a href="https://pinentry.net/">Checkout Other Games</a></button>
 
 		<!-- Below is the code for the end page of the demo version of this password entry method -->
 		<EndPage PIN={userEnteredPIN} />
