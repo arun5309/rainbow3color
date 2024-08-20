@@ -91,7 +91,7 @@
 	.roads {
 		/* display: grid;
 		grid-template-columns: repeat(1, 1fr); */
-		min-width: 30vw;
+		min-width: 22vw;
 		min-height: 7vh;
 		border-style: solid;
 		border-color: black;
