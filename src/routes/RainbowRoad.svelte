@@ -71,7 +71,7 @@
 			]}; align-items:center;justify-content:center;"
 			on:click={() => pickRoad(colorPresentationOrder[i], pMatrix[colorPresentationOrder[i]])}
 		>
-			{colorsNames[colorPresentationOrder[i]]} Code
+			{colorsNames[colorPresentationOrder[i]]}
 		</button>
 	{/each}
 </div>
